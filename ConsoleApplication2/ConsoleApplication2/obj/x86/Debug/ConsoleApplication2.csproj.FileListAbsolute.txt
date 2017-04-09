@@ -1,5 +1,0 @@
-D:\10311124\lab-3-zheng-gui-biao-shi-fa-IceXeGG\ConsoleApplication2\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
-D:\10311124\lab-3-zheng-gui-biao-shi-fa-IceXeGG\ConsoleApplication2\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
-D:\10311124\lab-3-zheng-gui-biao-shi-fa-IceXeGG\ConsoleApplication2\ConsoleApplication2\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\10311124\lab-3-zheng-gui-biao-shi-fa-IceXeGG\ConsoleApplication2\ConsoleApplication2\obj\x86\Debug\ConsoleApplication2.exe
-D:\10311124\lab-3-zheng-gui-biao-shi-fa-IceXeGG\ConsoleApplication2\ConsoleApplication2\obj\x86\Debug\ConsoleApplication2.pdb
