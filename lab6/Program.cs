@@ -1,46 +1,37 @@
-﻿using java.io;
-using opennlp.tools.tokenize;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using opennlp.tools.sentdetect;
 
-namespace lab5
+
+namespace LAB6
 {
     class Program
     {
         static void Main(string[] args)
         {
-            using (StreamWriter sw = new StreamWriter("example.txt"))
+
+            StreamReader str = new StreamReader(@"..\..\Result\Data.txt");
+            StreamWriter stw = new StreamWriter(@"..\..\Result\Result.txt");
+            while (str.Peek() != -1)
             {
-                string[] files = Directory.GetFiles(@"..\..\..\Dataset\", "*.html");
-                foreach (var file in files)
+                string line = str.ReadLine();
+                java.io.InputStream modelIn = new java.io.FileInputStream("en-sent.bin");
+                SentenceModel smodel = new SentenceModel(modelIn);
+                SentenceDetector detector = new SentenceDetectorME(smodel);
+                string[] sents = detector.sentDetect(line);
+                foreach (var sent in sents)
                 {
-                    using (StreamReader sr = new StreamReader(file))
-                    {
-                        while (sr.Peek() != -1)
-                        {
-                            string line = sr.ReadLine();
-                            InputStream modelIn = new FileInputStream(@"..\..\..\en-token.bin");
-                            string[] tokens;
-
-                            TokenizerModel model = new TokenizerModel(modelIn);
-                            TokenizerME Tokenizer = new TokenizerME(model);
-
-                            tokens = Tokenizer.tokenize(line);
-                            for (int i = 0;i<tokens.Length;i++)
-                            {
-                                sw.WriteLine(tokens[i]+" ");
-                            }
-
-                            
-                        }
-                        
-                    }
+                    stw.WriteLine(sent);
+                    stw.WriteLine();
                 }
+                stw.Flush();
             }
+            str.Close();
+            stw.Close();
         }
     }
 }
